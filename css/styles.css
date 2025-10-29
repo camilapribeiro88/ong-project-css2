@@ -1,4 +1,129 @@
-body{margin:0; font-family:Inter, sans-serif;}
-.brand{display:flex; align-items:center; gap:16px;}
-.brand img{height:40px;}
-.hero{text-align:center; padding:40px;}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ONG Project CSS2 – Camila Ribeiro</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <a class="skip-to-content" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container grid grid-12 align-center">
+      <div class="col-3 col-md-6 col-sm-8 flex items-center">
+        <button class="btn-hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menuMobile">
+          <span></span><span></span><span></span>
+        </button>
+        <a class="brand" href="#">
+          <img src="./img/logo.svg" alt="Logo" />
+          <span>ONG Project CSS2</span>
+        </a>
+      </div>
+
+      <nav class="col-9 col-md-6 col-sm-4 main-nav">
+        <ul class="menu">
+          <li><a href="#">Início</a></li>
+          <li class="has-dropdown">
+            <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">Projetos</button>
+            <ul class="dropdown" role="menu">
+              <li><a role="menuitem" href="#">Educação</a></li>
+              <li><a role="menuitem" href="#">Saúde</a></li>
+              <li><a role="menuitem" href="#">Meio Ambiente</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Sobre</a></li>
+          <li><a class="btn btn--primary btn--sm" href="#doar">Doar</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <nav id="menuMobile" class="mobile-nav" hidden>
+      <ul>
+        <li><a href="#">Início</a></li>
+        <li class="has-dropdown">
+          <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">Projetos</button>
+          <ul class="dropdown" role="menu">
+            <li><a role="menuitem" href="#">Educação</a></li>
+            <li><a role="menuitem" href="#">Saúde</a></li>
+            <li><a role="menuitem" href="#">Meio Ambiente</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Sobre</a></li>
+        <li><a class="btn btn--primary btn--sm" href="#doar">Doar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="container grid grid-12 align-center">
+      <div class="col-7 col-md-12">
+        <h1 class="h1">Transformando comunidades com tecnologia e educação</h1>
+        <p class="lead">Design System, CSS Grid, Flexbox, acessibilidade e componentes visuais.</p>
+
+        <div class="flex gap-16 wrap">
+          <a class="btn btn--primary" href="#projetos">Ver projetos</a>
+          <button class="btn btn--ghost" data-open-modal="#modalExemplo">Abrir modal</button>
+          <button class="btn btn--success" data-fire-toast>Mostrar toast</button>
+        </div>
+      </div>
+      <div class="col-5 col-md-12">
+        <img class="hero-img" src="./img/logo.svg" alt="">
+      </div>
+    </div>
+  </section>
+
+  <main id="conteudo" class="container section">
+    <h2 class="h2 mb-24" id="projetos">Projetos em destaque</h2>
+
+    <div class="grid grid-12 gap-24">
+
+      <article class="col-4 col-lg-6 col-sm-12 card">
+        <div class="card__body">
+          <h3 class="h4">Alfabetização Digital</h3>
+          <p>Capacitação gratuita em informática básica para jovens.</p>
+        </div>
+        <div class="card__footer">
+          <a class="btn btn--secondary btn--sm">Detalhes</a>
+          <button class="btn btn--primary btn--sm">Participar</button>
+        </div>
+      </article>
+
+      <article class="col-4 col-lg-6 col-sm-12 card">
+        <div class="card__body">
+          <h3 class="h4">Saúde da Mulher</h3>
+          <p>Oficinas e palestras de saúde preventiva.</p>
+        </div>
+        <div class="card__footer">
+          <a class="btn btn--secondary btn--sm">Detalhes</a>
+          <button class="btn btn--primary btn--sm">Participar</button>
+        </div>
+      </article>
+
+      <article class="col-4 col-lg-6 col-sm-12 card">
+        <div class="card__body">
+          <h3 class="h4">Eco Jovem</h3>
+          <p>Reflorestamento urbano + educação ambiental.</p>
+        </div>
+        <div class="card__footer">
+          <a class="btn btn--secondary btn--sm">Detalhes</a>
+          <button class="btn btn--primary btn--sm">Participar</button>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 ONG Project CSS2 — Camila Ribeiro</p>
+    </div>
+  </footer>
+
+  <div class="toast" hidden>✅ Sucesso!</div>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>
