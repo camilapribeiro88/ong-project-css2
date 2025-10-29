@@ -1,129 +1,257 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ONG Project CSS2 – Camila Ribeiro</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/styles.css" />
-</head>
-<body>
-  <a class="skip-to-content" href="#conteudo">Pular para o conteúdo</a>
+/* ============ RESET + TOKENS (Design System) ============ */
+:root{
+  /* Paleta (>= 8 cores) */
+  --color-primary-500:#2563eb;
+  --color-primary-600:#1d4ed8;
+  --color-primary-700:#1e40af;
 
-  <header class="site-header">
-    <div class="container grid grid-12 align-center">
-      <div class="col-3 col-md-6 col-sm-8 flex items-center">
-        <button class="btn-hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menuMobile">
-          <span></span><span></span><span></span>
-        </button>
-        <a class="brand" href="#">
-          <img src="./img/logo.svg" alt="Logo" />
-          <span>ONG Project CSS2</span>
-        </a>
-      </div>
+  --color-secondary-500:#7c3aed;
+  --color-secondary-600:#6d28d9;
 
-      <nav class="col-9 col-md-6 col-sm-4 main-nav">
-        <ul class="menu">
-          <li><a href="#">Início</a></li>
-          <li class="has-dropdown">
-            <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">Projetos</button>
-            <ul class="dropdown" role="menu">
-              <li><a role="menuitem" href="#">Educação</a></li>
-              <li><a role="menuitem" href="#">Saúde</a></li>
-              <li><a role="menuitem" href="#">Meio Ambiente</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Sobre</a></li>
-          <li><a class="btn btn--primary btn--sm" href="#doar">Doar</a></li>
-        </ul>
-      </nav>
-    </div>
+  --color-success-500:#16a34a;
+  --color-warning-500:#f59e0b;
+  --color-danger-500:#dc2626;
+  --color-info-500:#0891b2;
 
-    <nav id="menuMobile" class="mobile-nav" hidden>
-      <ul>
-        <li><a href="#">Início</a></li>
-        <li class="has-dropdown">
-          <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">Projetos</button>
-          <ul class="dropdown" role="menu">
-            <li><a role="menuitem" href="#">Educação</a></li>
-            <li><a role="menuitem" href="#">Saúde</a></li>
-            <li><a role="menuitem" href="#">Meio Ambiente</a></li>
-          </ul>
-        </li>
-        <li><a href="#">Sobre</a></li>
-        <li><a class="btn btn--primary btn--sm" href="#doar">Doar</a></li>
-      </ul>
-    </nav>
-  </header>
+  --color-pink-500:#ec4899;
 
-  <section class="hero">
-    <div class="container grid grid-12 align-center">
-      <div class="col-7 col-md-12">
-        <h1 class="h1">Transformando comunidades com tecnologia e educação</h1>
-        <p class="lead">Design System, CSS Grid, Flexbox, acessibilidade e componentes visuais.</p>
+  /* Neutros */
+  --color-neutral-50:#f9fafb;
+  --color-neutral-100:#f3f4f6;
+  --color-neutral-200:#e5e7eb;
+  --color-neutral-300:#d1d5db;
+  --color-neutral-500:#6b7280;
+  --color-neutral-700:#374151;
+  --color-neutral-900:#0f172a;
 
-        <div class="flex gap-16 wrap">
-          <a class="btn btn--primary" href="#projetos">Ver projetos</a>
-          <button class="btn btn--ghost" data-open-modal="#modalExemplo">Abrir modal</button>
-          <button class="btn btn--success" data-fire-toast>Mostrar toast</button>
-        </div>
-      </div>
-      <div class="col-5 col-md-12">
-        <img class="hero-img" src="./img/logo.svg" alt="">
-      </div>
-    </div>
-  </section>
+  /* Tipografia (>= 5 tamanhos) */
+  --fs-900: clamp(2rem, 1.2rem + 2.5vw, 3rem);
+  --fs-800: 2rem;
+  --fs-700: 1.5rem;
+  --fs-600: 1.125rem;
+  --fs-500: 1rem;
 
-  <main id="conteudo" class="container section">
-    <h2 class="h2 mb-24" id="projetos">Projetos em destaque</h2>
+  /* Espaçamento modular (8,16,24,32,48,64) */
+  --sp-8: 8px; --sp-16:16px; --sp-24:24px; --sp-32:32px; --sp-48:48px; --sp-64:64px;
 
-    <div class="grid grid-12 gap-24">
+  /* Larguras container */
+  --container: 1200px;
 
-      <article class="col-4 col-lg-6 col-sm-12 card">
-        <div class="card__body">
-          <h3 class="h4">Alfabetização Digital</h3>
-          <p>Capacitação gratuita em informática básica para jovens.</p>
-        </div>
-        <div class="card__footer">
-          <a class="btn btn--secondary btn--sm">Detalhes</a>
-          <button class="btn btn--primary btn--sm">Participar</button>
-        </div>
-      </article>
+  /* Sombra e radius */
+  --radius: 14px;
+  --shadow: 0 10px 25px rgba(0,0,0,.08);
+}
 
-      <article class="col-4 col-lg-6 col-sm-12 card">
-        <div class="card__body">
-          <h3 class="h4">Saúde da Mulher</h3>
-          <p>Oficinas e palestras de saúde preventiva.</p>
-        </div>
-        <div class="card__footer">
-          <a class="btn btn--secondary btn--sm">Detalhes</a>
-          <button class="btn btn--primary btn--sm">Participar</button>
-        </div>
-      </article>
+/* Breakpoints (>=5) */
+@media (max-width: 1280px){ :root{ --container: 1100px; } }   /* xl */
+@media (max-width: 1024px){ :root{ --container: 900px; } }    /* lg */
+@media (max-width: 900px){ :root{ --container: 760px; } }     /* md */
+@media (max-width: 768px){ :root{ --container: 640px; } }     /* sm */
+@media (max-width: 480px){ :root{ --container: 100%; } }      /* xs */
 
-      <article class="col-4 col-lg-6 col-sm-12 card">
-        <div class="card__body">
-          <h3 class="h4">Eco Jovem</h3>
-          <p>Reflorestamento urbano + educação ambiental.</p>
-        </div>
-        <div class="card__footer">
-          <a class="btn btn--secondary btn--sm">Detalhes</a>
-          <button class="btn btn--primary btn--sm">Participar</button>
-        </div>
-      </article>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: var(--fs-500);
+  color: var(--color-neutral-900);
+  background: #fff;
+  line-height:1.5;
+}
 
-    </div>
-  </main>
+/* Utilitários */
+.container{max-width:var(--container); margin-inline:auto; padding-inline: var(--sp-16);}
+.section{padding-block: var(--sp-48);}
+.mt-16{margin-top:var(--sp-16)}
+.mb-16{margin-bottom:var(--sp-16)}
+.mb-24{margin-bottom:var(--sp-24)}
+.flex{display:flex}
+.items-center{align-items:center}
+.justify-end{justify-content:flex-end}
+.wrap{flex-wrap:wrap}
+.gap-16{gap:var(--sp-16)}
+.muted{color:var(--color-neutral-500)}
+.lead{font-size:var(--fs-600); color: var(--color-neutral-700)}
+.h1{font-size:var(--fs-900); line-height:1.1; margin:0 0 var(--sp-16)}
+.h2{font-size:var(--fs-800); margin:0 0 var(--sp-16)}
+.h3{font-size:var(--fs-700); margin:0}
+.h4{font-size:var(--fs-600); margin:0 0 var(--sp-8)}
+a{color:inherit; text-decoration:none}
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2025 ONG Project CSS2 — Camila Ribeiro</p>
-    </div>
-  </footer>
+/* Acessibilidade */
+.skip-to-content{
+  position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
+}
+.skip-to-content:focus{
+  left: var(--sp-16); top: var(--sp-16); width:auto; height:auto; padding: var(--sp-8) var(--sp-16);
+  background: var(--color-primary-600); color:#fff; border-radius: var(--radius);
+}
 
-  <div class="toast" hidden>✅ Sucesso!</div>
+/* ============ GRID 12 COLUNAS ============ */
+.grid{display:grid}
+.grid-12{grid-template-columns: repeat(12, minmax(0, 1fr));}
+.gap-24{gap:var(--sp-24)}
 
-  <script src="./js/main.js"></script>
-</body>
-</html>
+[class^="col-"]{min-width:0}
+.col-12{grid-column: span 12}
+.col-9{grid-column: span 9}
+.col-7{grid-column: span 7}
+.col-6{grid-column: span 6}
+.col-5{grid-column: span 5}
+.col-4{grid-column: span 4}
+.col-3{grid-column: span 3}
+
+.align-center{align-items:center}
+
+/* Responsividade de colunas */
+@media (max-width:1024px){ /* lg */ .col-lg-6{grid-column: span 6} }
+@media (max-width:900px){  /* md */ .col-md-12{grid-column: span 12} }
+@media (max-width:768px){  /* sm */ .col-sm-12{grid-column: span 12} .col-sm-8{grid-column: span 8} .col-sm-4{grid-column: span 4} }
+
+/* ============ HEADER + NAV ============ */
+.site-header{
+  position:sticky; top:0; z-index:50;
+  background:#fff; border-bottom:1px solid var(--color-neutral-200);
+}
+
+.brand{display:flex; gap: var(--sp-8); align-items:center; text-decoration:none; color:inherit; font-weight:700}
+.brand img{width:28px; height:28px}
+
+.main-nav .menu{display:flex; gap: var(--sp-24); list-style:none; padding:0; margin:0; justify-content:flex-end; align-items:center}
+.main-nav a{color:inherit; text-decoration:none; padding: var(--sp-8) var(--sp-8); border-radius:10px}
+.main-nav a:hover{background: var(--color-neutral-100)}
+
+.has-dropdown{position:relative}
+.dropdown-trigger{
+  background:transparent; border:0; font:inherit; cursor:pointer; padding: var(--sp-8);
+  border-radius:10px;
+}
+.dropdown-trigger:hover{background: var(--color-neutral-100)}
+.has-dropdown .dropdown{
+  position:absolute; right:0; top: calc(100% + 8px);
+  min-width: 220px; list-style:none; margin:0; padding: var(--sp-8);
+  background:#fff; border:1px solid var(--color-neutral-200); border-radius:var(--radius); box-shadow: var(--shadow);
+  display:none;
+}
+.has-dropdown:focus-within .dropdown,
+.has-dropdown:hover .dropdown{display:block}
+.dropdown a{display:block; padding:10px 12px; border-radius:8px; text-decoration:none; color:inherit;}
+.dropdown a:hover{background: var(--color-neutral-100)}
+
+.btn-hamburger{
+  display:none; margin-right: var(--sp-16);
+  width:40px; height:40px; border:1px solid var(--color-neutral-200);
+  background:#fff; border-radius:10px; align-items:center; justify-content:center; gap:4px; flex-direction:column;
+}
+.btn-hamburger span{display:block; width:20px; height:2px; background:var(--color-neutral-900)}
+@media (max-width:900px){
+  .btn-hamburger{display:flex}
+  .main-nav{display:none}
+}
+
+/* Navegação mobile */
+.mobile-nav{ border-top:1px solid var(--color-neutral-200); background:#fff; }
+.mobile-nav ul{list-style:none; margin:0; padding: var(--sp-8)}
+.mobile-nav a, .mobile-nav .dropdown-trigger{ display:block; padding:12px; text-decoration:none; color:inherit; border-radius:10px; }
+.mobile-nav a:hover{background: var(--color-neutral-100)}
+.mobile-nav .has-dropdown .dropdown{position:static; border:0; box-shadow:none; padding:0; display:none}
+.mobile-nav .has-dropdown.open .dropdown{display:block}
+
+/* ============ HERO ============ */
+.hero{padding-block: var(--sp-48); background:linear-gradient(180deg,#fff, var(--color-neutral-50))}
+.hero .hero-img{width:100%; border-radius: var(--radius); box-shadow: var(--shadow)}
+
+/* ============ CARDS ============ */
+.card{
+  background:#fff; border:1px solid var(--color-neutral-200); border-radius: var(--radius);
+  overflow:hidden; display:flex; flex-direction:column; box-shadow: var(--shadow);
+}
+.card__body{padding: var(--sp-16)}
+.card__footer{padding: var(--sp-16); display:flex; justify-content:space-between; border-top:1px solid var(--color-neutral-200)}
+
+/* ============ BOTÕES (estados) ============ */
+.btn{
+  --btn-bg: var(--color-neutral-900);
+  --btn-fg: #fff;
+  --btn-border: transparent;
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding: 12px 18px; border-radius:12px; border:1px solid var(--btn-border);
+  background: var(--btn-bg); color: var(--btn-fg); text-decoration:none; cursor:pointer; font-weight:600;
+  transition: transform .04s ease, background .2s ease, box-shadow .2s ease, opacity .2s ease;
+}
+.btn:focus{outline: 3px solid #000; outline-offset:2px}
+.btn:hover{box-shadow: 0 8px 20px rgba(0,0,0,.08)}
+.btn:active{transform: translateY(1px)}
+.btn:disabled, .btn[disabled]{opacity:.6; cursor:not-allowed}
+
+.btn--sm{padding:8px 12px; font-size:.9rem}
+.btn--icon{background:var(--color-neutral-100); color:var(--color-neutral-900)}
+.btn--ghost{background:transparent; color:var(--color-neutral-900); border-color: var(--color-neutral-300)}
+
+.btn--primary{--btn-bg: var(--color-primary-600)}
+.btn--primary:hover{--btn-bg: var(--color-primary-700)}
+.btn--secondary{--btn-bg: var(--color-secondary-500)}
+.btn--secondary:hover{--btn-bg: var(--color-secondary-600)}
+.btn--success{--btn-bg: var(--color-success-500)}
+.btn--warning{--btn-bg: var(--color-warning-500)}
+.btn--danger{--btn-bg: var(--color-danger-500)}
+
+/* ============ BADGES / TAGS ============ */
+.tags{display:flex; gap:8px; flex-wrap:wrap}
+.badge{
+  display:inline-block; padding:6px 10px; font-weight:600; font-size:.85rem;
+  background: var(--color-neutral-100); color: var(--color-neutral-900);
+  border:1px solid var(--color-neutral-200); border-radius:999px;
+}
+.badge--info{background:#e0f2fe; color:#0c4a6e; border-color:#bae6fd}
+.badge--success{background:#dcfce7; color:#14532d; border-color:#86efac}
+.badge--warning{background:#fef3c7; color:#7c2d12; border-color:#fde68a}
+.badge--neutral{background:#eef2ff; color:#312e81; border-color:#c7d2fe}
+.badge--pink{background:#fce7f3; color:#831843; border-color:#fbcfe8}
+
+/* ============ FORMULÁRIOS (validação visual) ============ */
+.form{max-width:640px}
+.form__row{display:flex; flex-direction:column; gap:6px; margin-bottom:14px}
+.form label{font-weight:600}
+.form input, .form select, .form textarea{
+  padding:12px 14px; border-radius:10px; border:1px solid var(--color-neutral-300);
+  background:#fff; transition:border .2s ease, box-shadow .2s ease;
+}
+.form input:focus, .form select:focus, .form textarea:focus{
+  border-color: var(--color-primary-600);
+  box-shadow: 0 0 0 4px rgba(37,99,235,.15);
+  outline:0;
+}
+.form input:required:invalid{border-color: var(--color-danger-500)}
+.form input:required:valid{border-color: var(--color-success-500)}
+.form__msg{font-size:.85rem; color: var(--color-neutral-500)}
+.form__actions{display:flex; gap:10px}
+
+/* ============ ALERTS / TOASTS / MODALS ============ */
+.alert{
+  padding:12px 14px; border-radius:10px; margin-bottom:10px; border:1px solid transparent;
+}
+.alert--info{background:#e0f2fe; color:#0c4a6e; border-color:#bae6fd}
+.alert--success{background:#dcfce7; color:#14532d; border-color:#86efac}
+.alert--warning{background:#fef3c7; color:#7c2d12; border-color:#fde68a}
+.alert--danger{background:#fee2e2; color:#7f1d1d; border-color:#fecaca}
+
+.toast{
+  position:fixed; right:16px; bottom:16px;
+  background:#111827; color:#fff; padding:12px 14px; border-radius:12px; box-shadow: var(--shadow);
+  transform: translateY(20px); opacity:0; transition: .25s ease;
+}
+.toast.is-visible{transform: translateY(0); opacity:1}
+
+/* Modal */
+.modal{position:fixed; inset:0; display:grid; place-items:center; background: rgba(0,0,0,.45)}
+.modal__dialog{
+  width:min(560px, 92vw); background:#fff; border-radius:16px; overflow:hidden; box-shadow: var(--shadow);
+}
+.modal__header, .modal__footer{padding:12px 14px; background: var(--color-neutral-100)}
+.modal__body{padding:14px}
+[hidden]{display:none !important}
+
+/* ============ FOOTER ============ */
+.site-footer{padding: var(--sp-24) 0; border-top:1px solid var(--color-neutral-200)}
+.footer-links{display:flex; gap:16px; list-style:none; padding:0; margin:0}
