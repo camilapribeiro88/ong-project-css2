@@ -62,11 +62,16 @@
       <div class="col-7 col-md-12">
         <h1 class="h1">Transformando comunidades com tecnologia e educação</h1>
         <p class="lead">Design System, CSS Grid, Flexbox, acessibilidade e componentes visuais.</p>
-
         <div class="flex gap-16 wrap">
           <a class="btn btn--primary" href="#projetos">Ver projetos</a>
           <button class="btn btn--ghost" data-open-modal="#modalExemplo">Abrir modal</button>
           <button class="btn btn--success" data-fire-toast>Mostrar toast</button>
+        </div>
+        <div class="tags mt-16">
+          <span class="badge">Acessível</span>
+          <span class="badge badge--info">Responsivo</span>
+          <span class="badge badge--success">Inclusivo</span>
+          <span class="badge badge--warning">Beta</span>
         </div>
       </div>
       <div class="col-5 col-md-12">
@@ -79,11 +84,14 @@
     <h2 class="h2 mb-24" id="projetos">Projetos em destaque</h2>
 
     <div class="grid grid-12 gap-24">
-
       <article class="col-4 col-lg-6 col-sm-12 card">
         <div class="card__body">
           <h3 class="h4">Alfabetização Digital</h3>
           <p>Capacitação gratuita em informática básica para jovens.</p>
+          <div class="tags">
+            <span class="badge">Educação</span>
+            <span class="badge badge--neutral">Nível 1</span>
+          </div>
         </div>
         <div class="card__footer">
           <a class="btn btn--secondary btn--sm">Detalhes</a>
@@ -95,6 +103,10 @@
         <div class="card__body">
           <h3 class="h4">Saúde da Mulher</h3>
           <p>Oficinas e palestras de saúde preventiva.</p>
+          <div class="tags">
+            <span class="badge badge--pink">Saúde</span>
+            <span class="badge badge--info">Oficinas</span>
+          </div>
         </div>
         <div class="card__footer">
           <a class="btn btn--secondary btn--sm">Detalhes</a>
@@ -106,23 +118,86 @@
         <div class="card__body">
           <h3 class="h4">Eco Jovem</h3>
           <p>Reflorestamento urbano + educação ambiental.</p>
+          <div class="tags">
+            <span class="badge badge--success">Meio Ambiente</span>
+            <span class="badge badge--warning">Mutirão</span>
+          </div>
         </div>
         <div class="card__footer">
           <a class="btn btn--secondary btn--sm">Detalhes</a>
           <button class="btn btn--primary btn--sm">Participar</button>
         </div>
       </article>
-
     </div>
+
+    <section id="doar" class="section">
+      <h2 class="h2 mb-16">Quero apoiar</h2>
+      <form class="form" novalidate>
+        <div class="form__row">
+          <label for="nome">Nome*</label>
+          <input id="nome" name="nome" type="text" required placeholder="Seu nome completo" />
+          <small class="form__msg">Campo obrigatório.</small>
+        </div>
+        <div class="form__row">
+          <label for="email">E-mail*</label>
+          <input id="email" name="email" type="email" required placeholder="voce@exemplo.com" />
+          <small class="form__msg">Informe um e-mail válido.</small>
+        </div>
+        <div class="form__row">
+          <label for="valor">Valor (R$)*</label>
+          <input id="valor" name="valor" type="number" min="10" step="5" required placeholder="Ex.: 50" />
+          <small class="form__msg">Mínimo R$10.</small>
+        </div>
+        <div class="form__actions">
+          <button class="btn btn--primary" type="submit">Doar agora</button>
+          <button class="btn btn--ghost" type="reset">Limpar</button>
+        </div>
+      </form>
+      <div class="alerts mt-16">
+        <div class="alert alert--info">Dica: você pode doar também com PIX.</div>
+        <div class="alert alert--warning">Atenção: não compartilhe seus dados de cartão.</div>
+        <div class="alert alert--success" hidden id="alertSucesso">Obrigado! Doação registrada.</div>
+        <div class="alert alert--danger" hidden id="alertErro">Ops! Tente novamente.</div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>© 2025 ONG Project CSS2 — Camila Ribeiro</p>
+    <div class="container grid grid-12">
+      <div class="col-6 col-sm-12">
+        <p class="muted">© 2025 ONG Project CSS2 — Camila Ribeiro.</p>
+      </div>
+      <div class="col-6 col-sm-12 flex justify-end">
+        <ul class="footer-links">
+          <li><a href="#">Acessibilidade</a></li>
+          <li><a href="#">Política de Privacidade</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </div>
     </div>
   </footer>
 
-  <div class="toast" hidden>✅ Sucesso!</div>
+  <!-- Modal -->
+  <div id="modalExemplo" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal__dialog" role="document">
+      <header class="modal__header">
+        <h3 id="modalTitle" class="h3">Exemplo de Modal</h3>
+        <button class="btn btn--icon" data-close-modal aria-label="Fechar modal">×</button>
+      </header>
+      <div class="modal__body">
+        <p>Este modal demonstra o componente de feedback solicitado.</p>
+      </div>
+      <footer class="modal__footer">
+        <button class="btn btn--secondary" data-close-modal>Cancelar</button>
+        <button class="btn btn--primary">Confirmar</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" role="status" aria-live="polite" hidden>
+    <span>Item adicionado com sucesso!</span>
+  </div>
 
   <script src="./js/main.js"></script>
 </body>
