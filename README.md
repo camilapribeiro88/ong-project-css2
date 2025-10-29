@@ -1,0 +1,2 @@
+Este projeto foi desenvolvido como parte da **Entrega II** da disciplina de Desenvolvimento Web, com foco na construção de interfaces modernas, responsivas e acessíveis, utilizando **CSS3**, **Design System**, **CSS Grid**, **Flexbox** e componentes funcionais.  
+A proposta consiste em criar a apresentação institucional de uma ONG e seus projetos, garantindo consistência visual, clareza de navegação e experiência fluida em diferentes dispositivos.
