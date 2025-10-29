@@ -1,0 +1,4 @@
+body{margin:0; font-family:Inter, sans-serif;}
+.brand{display:flex; align-items:center; gap:16px;}
+.brand img{height:40px;}
+.hero{text-align:center; padding:40px;}
